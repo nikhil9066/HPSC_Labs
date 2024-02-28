@@ -25,4 +25,5 @@ def dot_product():
     # Compare results and measure speed-up
     print(f"Norm of difference: {np.linalg.norm(c - cc)}")
     print(f"Speed-up: {loop_time/vec_time}")
-x
+
+dot_product()
