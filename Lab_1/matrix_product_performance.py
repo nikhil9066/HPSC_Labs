@@ -1,8 +1,8 @@
 import numpy as np
 import time
 
-def dot_product():
-    n = 10000
+# Function for Dot Product
+def dot_product(n):
     a = np.random.rand(n, 1)
     b = np.random.rand(n, 1)
 
@@ -26,8 +26,8 @@ def dot_product():
     print(f"Norm of difference: {np.linalg.norm(c - cc)}")
     print(f"Speed-up: {loop_time/vec_time}")
 
-def matrix_vector_product():
-    n = 100
+# Function for Matrix-Vector Product
+def matrix_vector_product(n):
     A = np.random.rand(n, n)
     x = np.random.rand(n, 1)
 
@@ -66,8 +66,8 @@ def matrix_vector_product():
     print(f"Speed-up (nested loops vs fully vectorized): {loop_time/vec_time}")
     print(f"Speed-up (vectorized loop vs fully vectorized): {loop_vec_time/vec_time}")
 
-def matrix_matrix_product():
-    n = 1000
+# Function for Matrix-Matrix Product
+def matrix_matrix_product(n):
     A = np.random.rand(n, n)
     B = np.random.rand(n, n)
 
@@ -116,19 +116,17 @@ def choose_function():
 
     choice = input("Enter 1, 2, or 3: ")
     
-    if choice == '1':
-        print("\nDot Product")
-        for _ in range(10):
-            dot_product()
-    elif choice == '2':
-        print("\nMatrix-Vector Product")
-        for _ in range(10):
-            matrix_vector_product()
-    elif choice == '3':
-        print("\nMatrix-Matrix Product")
-        for _ in range(10):
-            matrix_matrix_product()
-    else:
-        print("Invalid choice. Please enter 1, 2, or 3.")
+    for ns_value in [10110, 101, 50001]:
+        if choice == '1':
+            print(f"\nDot Product with νs = {ns_value}")
+            dot_product(ns_value)
+        elif choice == '2':
+            print(f"\nMatrix-Vector Product with νs = {ns_value}")
+            matrix_vector_product(ns_value)
+        elif choice == '3':
+            print(f"\nMatrix-Matrix Product with νs = {ns_value}")
+            matrix_matrix_product(ns_value)
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
 
 choose_function()
