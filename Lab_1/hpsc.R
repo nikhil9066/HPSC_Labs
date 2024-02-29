@@ -2,8 +2,7 @@
 library(Matrix)
 
 # Function for Dot Product
-dot_product <- function() {
-  n <- 10000
+dot_product <- function(n) {
   a <- runif(n)
   b <- runif(n)
   
@@ -27,8 +26,7 @@ dot_product <- function() {
 }
 
 # Function for Matrix-Vector Product
-matrix_vector_product <- function() {
-  n <- 100
+matrix_vector_product <- function(n) {
   A <- matrix(runif(n^2), ncol = n)
   x <- runif(n)
   
@@ -67,8 +65,7 @@ matrix_vector_product <- function() {
 }
 
 # Function for Matrix-Matrix Product
-matrix_matrix_product <- function() {
-  n <- 1000
+matrix_matrix_product <- function(n) {
   A <- matrix(runif(n^2), ncol = n)
   B <- matrix(runif(n^2), ncol = n)
   
@@ -111,8 +108,32 @@ matrix_matrix_product <- function() {
   cat("Speed-up (vectorized loop vs fully vectorized):", loop_vec_time / vec_time, "\n")
 }
 
-dot_product()
+# Choose which function to run
+choose_function <- function() {
+  cat("Choose a function to run:\n")
+  cat("1. Dot Product\n")
+  cat("2. Matrix-Vector Product\n")
+  cat("3. Matrix-Matrix Product\n")
+  choice <- as.numeric(readline("Enter 1, 2, or 3: "))
+  #choice <- as.numeric(readline("Enter 1, 2, or 3: "))
+  choice <- 1
+  
+  for (ns_value in c(10110, 101, 50001)) {
+    if (choice == 1) {
+      cat("\nDot Product with νs =", ns_value, "\n")
+      dot_product(ns_value)
+    } else if (choice == 2) {
+      cat("\nMatrix-Vector Product with νs =", ns_value, "\n")
+      matrix_vector_product(ns_value)
+    } else if (choice == 3) {
+      cat("\nMatrix-Matrix Product with νs =", ns_value, "\n")
+      matrix_matrix_product(ns_value)
+    } else {
+      cat("Invalid choice. Please enter 1, 2, or 3.\n")
+    }
+  }
+}
 
-matrix_vector_product()
+# Run the chosen function
+choose_function()
 
-matrix_matrix_product()
