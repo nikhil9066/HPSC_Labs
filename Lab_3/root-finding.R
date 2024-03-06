@@ -92,7 +92,7 @@ xx <- seq(a, b, length.out = 1001)
 f_values <- f(xx)
 
 # For sequential roots
-plot_roots_and_function(xx, f_values, seq_roots, "Sequential_Roots")
+#plot_roots_and_function(xx, f_values, seq_roots, "Sequential_Roots")
 
 # For parallel roots
-plot_roots_and_function(xx, f_values, parallel_roots, "Parallel_Roots")
+# plot_roots_and_function(xx, f_values, parallel_roots, "Parallel_Roots")
