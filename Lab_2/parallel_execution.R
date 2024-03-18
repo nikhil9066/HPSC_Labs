@@ -8,6 +8,7 @@ simulate_task <- function(iterations) {
   }
 }
 
+
 run_parallel_tasks <- function(num_tasks, num_threads) {
   start_time_single_task <- Sys.time()
   simulate_task(1)
